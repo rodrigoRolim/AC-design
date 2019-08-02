@@ -1,0 +1,68 @@
+@startuml
+left to right direction
+skinparam classFontSize 28
+skinparam ClassAttributeFontSize 28
+skinparam ArrowFontSize 28
+
+class student {
+    _id: number
+    ra: String
+    name: String
+    email: String
+    department: Department
+    situation: enum
+    graduation: course
+    password: encrypted
+    type_user: String
+}
+class document {
+    _id: number
+    name: string
+    path: String
+    feedback: String
+    score: integer
+    sent: boolean
+    group: String
+    item: String
+    evaluation: bit
+    sent: boolean
+    student: Student
+}
+class group {
+    _id: number
+    name: string
+    item: items
+    scoreMin: number
+    scoreMax: numeber
+    description: String
+    items: Item
+}
+class items {
+    _id: number
+    description: text 
+}
+class professor {
+    _id: number
+    siape: string
+    name: string
+    email: String
+    department: Department
+    password: encrypted
+    type_user: Enum
+}
+class graduation {
+    _id: number
+    name: string
+    department: Department
+}
+class department {
+    _id: number
+    name: String
+}
+document "*..0"--- "1" group
+group o-- items
+document "*..0" --- "1" student
+student "*..0" --- "1" department
+department "1" --- "*..0" graduation
+professor "1" --- "1" department 
+@enduml

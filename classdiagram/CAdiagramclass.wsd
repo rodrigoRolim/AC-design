@@ -1,0 +1,84 @@
+@startuml
+skinparam classFontSize 18
+skinparam ClassStereotypeFontSize 18
+hide members
+class document  <<(M, #00ffbb)Model>> {
+
+}
+class student <<(M, #00ffbb)Model>> { 
+
+}
+class professor <<(M, #00ffbb)Model>> {
+
+}
+class group <<(M, #00ffbb)Model>> {
+
+}
+class item <<(M, #00ffbb)Model>> {
+
+}
+class documentController <<(C, #00bfff)Controller>> {
+
+}
+class studentController <<(C, #00bfff)Controller>> {
+
+}
+class professorController <<(C, #00bfff)Controller>> {
+
+}
+class professorRoute <<(R, #ff0040)Route>> {
+
+}
+class studentRoute <<(R, #ff0040)Route>> {
+
+}
+class documentRoute  <<(R, #ff0040)Route>> {
+
+}
+class groupController <<(C, #00bfff) Controller>> {
+
+}
+class groupRouter <<(R, #ff0040)Route>> {
+
+}
+class department <<(M, #00ffbb)Model>> {
+
+}
+class departmentController <<(C, #00bfff) Controller>> {
+
+}
+class departmentRoute <<(R, #ff0040)Route>> {
+
+}
+class graduation <<(M, #00ffbb)Model>> {
+
+}
+class graduationController <<(C, #00bfff) Controller>> {
+
+}
+class graduationRoute <<(R, #ff0040)Route>> {
+
+}
+
+document --  group
+student -- document
+professor -- department
+graduation -- student
+department -- graduation
+group o-- item: have >
+
+documentController ..> document
+student <.. studentController
+professor <.. professorController
+graduation <.. graduationController
+department <.. departmentController
+
+documentController <.. documentRoute
+studentController <.. studentRoute
+professorController <.. professorRoute
+groupController ..> group
+groupController <.. groupRouter
+departmentController <.. departmentRoute
+graduationController <.. graduationRoute
+
+@enduml
